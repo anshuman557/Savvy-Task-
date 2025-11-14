@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const API_KEY = "22fcaa80b5174d65b1164952251411";
-const API_BASE_URL = "http://api.weatherapi.com/v1/current.json";
+const API_BASE_URL = "https://api.weatherapi.com/v1/current.json";
 
 export const getWeather = async (cityName, countryCode, aqi) => {
   try {
     const response = await axios.get(
-      `${API_BASE_URL}?q=${cityName},${countryCode}&key=${API_KEY}&aqi=${aqi}`
+      `${API_BASE_URL}?q=${cityName}&country=${countryCode}&key=${API_KEY}&aqi=${aqi}`
     );
     return response.data;
   } catch (error) {

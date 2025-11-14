@@ -58,12 +58,12 @@ const SectionTitle = styled(Typography)({
 
 const AirQuality = ({ data }) => {
   const airQualityData = [
-    { icon: <Grain />, label: "CO", value: data.co?.toFixed(2) },
-    { icon: <Grain />, label: "NO₂", value: data.no2?.toFixed(2) },
-    { icon: <Grain />, label: "O₃", value: data.o3?.toFixed(2) },
-    { icon: <Grain />, label: "SO₂", value: data.so2?.toFixed(2) },
-    { icon: <Grain />, label: "PM2.5", value: data.pm2_5?.toFixed(2) },
-    { icon: <Grain />, label: "PM10", value: data.pm10?.toFixed(2) },
+    { icon: <Grain />, label: "CO", value: data.co?.toFixed(2) ?? "N/A" },
+    { icon: <Grain />, label: "NO₂", value: data.no2?.toFixed(2) ?? "N/A" },
+    { icon: <Grain />, label: "O₃", value: data.o3?.toFixed(2) ?? "N/A" },
+    { icon: <Grain />, label: "SO₂", value: data.so2?.toFixed(2) ?? "N/A" },
+    { icon: <Grain />, label: "PM2.5", value: data.pm2_5?.toFixed(2) ?? "N/A" },
+    { icon: <Grain />, label: "PM10", value: data.pm10?.toFixed(2) ?? "N/A" },
   ];
 
   return (
@@ -95,7 +95,7 @@ export default function Information({ result }) {
     return <ErrorDisplay>{result.error}</ErrorDisplay>;
   }
 
-  if (!result || !result.location) {
+  if (!result || !result.location || !result.current) {
     return <InitialDisplay>Enter a city to get started</InitialDisplay>;
   }
 
