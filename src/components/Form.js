@@ -76,7 +76,6 @@ export default function Form({ setResult }) {
             variant="outlined"
             fullWidth
             name="city"
-            value={data.city}
             onChange={handleChange}
           />
         </Grid>
@@ -86,7 +85,6 @@ export default function Form({ setResult }) {
             variant="outlined"
             fullWidth
             name="country"
-            value={data.country}
             onChange={handleChange}
           />
         </Grid>
